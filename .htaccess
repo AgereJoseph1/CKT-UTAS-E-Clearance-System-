@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteRule ^officer/([0-9a-zA-Z]+) officer.php?id=$1 [NC,L]
+RewriteRule ^office/([0-9a-zA-Z]+) office.php?id=$1 [NC,L]
