@@ -20,6 +20,15 @@ if (isset($_POST['studentSignIn'])){
     $res = CRUD::querySingle("student", "index_number=:in", [":in" => $stid]);
     if (isset($res['index_number'])){
         if ($res['pwd'] == $pass){
+
+            /*
+             # Query student table for amount of fees
+             # If fees is <= 0:
+             #      Grant Access
+             #Else:
+             #  redirect('')
+            */
+
             $_SESSION['sid'] = $res['id'];
             redirect("student/dashboard.php");
         }else{
