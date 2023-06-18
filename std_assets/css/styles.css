@@ -2,7 +2,7 @@
 
 .login__screen{
     min-height: 100vh;
-    background: url("../../assets/images/bg.jpg") #4A4A4A no-repeat;
+    background: url("../../assets/images/ckt.png") #4A4A4A no-repeat;
     background-size: cover;
 
 }
@@ -14,4 +14,9 @@
     top: 0;
     bottom: 0;
     background: rgba(5, 5, 5, 0.6);
+}
+
+.login__btn {
+    background-color: #cb4154;
+    color: #ffffff;
 }

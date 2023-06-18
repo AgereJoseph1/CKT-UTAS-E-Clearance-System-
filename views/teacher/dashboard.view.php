@@ -22,7 +22,8 @@
               <div class="card card_border border-primary-top p-4">
                 
                 <h3 class="text-primary number"><?= $ctx['master']['class']?></h3>
-                <p class="stat-text">Class</p>
+                <!-- Changed class to Course -->
+                <p class="stat-text">Course</p>
               </div>
             </div>
             <div class="col-sm-6 pl-sm-2 statistics-grid">

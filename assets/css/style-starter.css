@@ -24,7 +24,7 @@ Author URL: http://w3layouts.com
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #4755AB;
+  --primary: #cb4154;
   --secondary: #B162AC;
   --success: #03c895;
   --info: #17a2b8;
@@ -1269,7 +1269,7 @@ pre {
 .table-info,
 .table-info > th,
 .table-info > td {
-  background-color: #bee5eb; }
+  background-color: #ffe8eb; }
 
 .table-info th,
 .table-info td,
@@ -1826,17 +1826,17 @@ fieldset:disabled a.btn {
   pointer-events: none; }
 
 .btn-primary {
-  color: #fff;
-  background-color: #4755AB;
-  border-color: #4755AB; }
+  color: #0c0c0c;
+  background-color: #ffd700;
+  border-color: #ffd700; }
   .btn-primary:hover {
-    color: #fff;
-    background-color: #3c4890;
-    border-color: #384387; }
+    color: #0c0c0c;
+    background-color: #eac701;
+    border-color: #ffd700; }
   .btn-primary:focus, .btn-primary.focus {
-    color: #fff;
-    background-color: #3c4890;
-    border-color: #384387;
+    color: #0c0c0c;
+    background-color: #ffd700;
+    border-color: #ffd700;
     box-shadow: 0 0 0 0.2rem rgba(99, 111, 184, 0.5); }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
@@ -1879,16 +1879,16 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #03c895;
-  border-color: #03c895; }
+  background-color: #cb4154;
+ }
   .btn-success:hover {
     color: #fff;
-    background-color: #02a279;
-    border-color: #029670; }
+    background-color: #cb4154;
+    border-color: #ffd700; }
   .btn-success:focus, .btn-success.focus {
     color: #fff;
-    background-color: #02a279;
-    border-color: #029670;
+    background-color: #cb4154;
+    border-color: #ffd700;
     box-shadow: 0 0 0 0.2rem rgba(41, 208, 165, 0.5); }
   .btn-success.disabled, .btn-success:disabled {
     color: #fff;
@@ -1905,16 +1905,16 @@ fieldset:disabled a.btn {
 
 .btn-info {
   color: #fff;
-  background-color: #17a2b8;
-  border-color: #17a2b8; }
+  background-color: #cb4154;
+  border-color: #cb4154; }
   .btn-info:hover {
     color: #fff;
-    background-color: #138496;
-    border-color: #117a8b; }
+    background-color: #cb4154;
+    border-color: #cb4154; }
   .btn-info:focus, .btn-info.focus {
     color: #fff;
-    background-color: #138496;
-    border-color: #117a8b;
+    background-color: #cb4154;
+    border-color: #cb4154;
     box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5); }
   .btn-info.disabled, .btn-info:disabled {
     color: #fff;
@@ -10084,7 +10084,7 @@ License: https://linearicons.com/free/license
   content: "\e8a9"; }
 
 :root {
-  --primary: #4755AB;
+  --primary: #cb4154;
   --secondary: #B162AC;
   --success: #03c895;
   --danger: #ff4f81;
@@ -10642,15 +10642,14 @@ input#search:focus + .search-submit,
 
 .custom-nav > li.active > a,
 .custom-nav > li.active > a:focus {
-  color: var(--primary);
-  color: var(--secondary); }
+  color: var(--primary); }
 
 .custom-nav > li.active > a:hover {
   color: #fff; }
 
 .custom-nav > li.active > a i,
 .custom-nav > li.active > a i:focus {
-  color: var(--secondary); }
+  color: var(--primary); }
 
 ul.dropdown-menu.drp-mnu li {
   width: 100%; }

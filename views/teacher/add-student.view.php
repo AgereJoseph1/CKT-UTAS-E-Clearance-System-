@@ -12,6 +12,8 @@
       <div class="row">
           <div class="col-12 offset-md-3 col-md-6">
               <a href="students.php" class="btn btn-primary mb-1">View All Students</a>
+              <!-- Added new button for the option to upload .csv file -->
+              <a href="#!" class="btn btn-primary mb-1">Upload .CSV</a>
               <div class="card">
                   <h3 class="card-title text-center mt-3">Add Student</h3>
                   <?php include_once VIEW_ROOT."includes/alerts.inc.php" ?>

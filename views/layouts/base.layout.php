@@ -16,7 +16,7 @@
   <link href="/eclear/fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
 </head>
 
-<body class="sidebar-menu-collapsed">
+<body>
 
 <section>
   <?php if (strpos($_SERVER['SCRIPT_FILENAME'], "library") !=false) :?>

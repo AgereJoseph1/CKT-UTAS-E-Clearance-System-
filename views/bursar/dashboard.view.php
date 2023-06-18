@@ -10,7 +10,7 @@
       </ol>
     </nav>
     <div class="welcome-msg pt-3 pb-4">
-      <h1>GENERAL OVERVIEW</h1>
+      <h1>OVERVIEW</h1>
     </div>
 
     <!-- statistics data -->
