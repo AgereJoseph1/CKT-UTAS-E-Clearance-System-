@@ -32,6 +32,7 @@ if (isset($_POST['addOfficer'])){
     $phn = $_POST['phone'];
     $off = $_POST['office'];
     $role = $_POST['role'];
+    $signature = $_POST['signature'];
 
 
     if (
@@ -48,7 +49,7 @@ if (isset($_POST['addOfficer'])){
             'fullname' => $fn,
             'role' => $role,
             'password' => "123456",
-            'institution_id' => $_SESSION['selectedInstitutionOfficerID'],
+            'signature' => $signature,
             'created_at' => date("d/m/Y")
         ];
 

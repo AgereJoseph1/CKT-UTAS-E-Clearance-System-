@@ -14,30 +14,12 @@
 
       <!-- sidebar nav start -->
       <ul class="nav nav-pills nav-stacked custom-nav">
-        <li class="active"><a href="#"><i class="fa fa-tachometer"></i><span> Dashboard</span></a>
+        <li class="active"><a href="dashboard.php"><i class="fa fa-tachometer"></i><span> Dashboard</span></a>
         </li>
-        <li class="menu-list">
-          <a href="#"><i class="fa fa-table"></i>
-            <span>Record </a>
-          <ul class="sub-menu-list">
-            <li><a href="records.php">All records</a> </li>
-            <li><a href= "add-record.php">Add records</a> </li>
-          </ul>
-        </li>
-          <li class="menu-list">
-          <a href="#"><i class="fa fa-book"></i>
-            <span>Books</span></a>
-          <ul class="sub-menu-list">
-            <li><a href="books.php">All Books </a> </li>
-            <li><a href="add-book.php">Add Book</a> </li>
-          </ul>
-        </li>
-          <li class="menu-list">
-            <a href="#"><i class="fa fa-user"></i>
+          
+          <li class="">
+            <a href="clearance.php"><i class="fa fa-user"></i>
                 <span>Clearance </a>
-            <ul class="sub-menu-list">
-                <li><a href="clearance.php">All Clearance</a> </li>
-            </ul>
         </li>
       </ul>
       <!-- //sidebar nav end -->

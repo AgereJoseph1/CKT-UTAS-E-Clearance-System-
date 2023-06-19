@@ -123,7 +123,7 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
-                    <div class=" form-group">
+                    <!-- <div class=" form-group">
                         <label for="">Office</label>
                         <select name="office" id="" class="form-control">
                             <?php foreach ($ctx['offices'] as $office): ?>
@@ -132,6 +132,9 @@
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </select>
+                    </div> -->
+                    <div class="form-group">
+                        <input type="file" name="signature" class="form-control">
                     </div>
                     <div class="form-group">
                         <button type="submit" name="addOfficer" class="btn btn-block btn-success">Add Officer</button>
