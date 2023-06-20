@@ -10096,7 +10096,6 @@ License: https://linearicons.com/free/license
 html {
   scroll-behavior: smooth; }
 
-p,
 .para__style {
   margin: 0;
   font-size: 16px;
@@ -13144,6 +13143,17 @@ img {
   height: 500px;
   overflow-y: auto;
   padding: 30px 15px 0 25px; }
+
+.imgage-holder {
+  width: 80%;
+  border: 2px black solid;
+  padding: 0 10px;
+  height: 100%;
+}
+
+.pn-18 p{
+  font-size: 18 !important;
+}
 
 /*--responsive--*/
 @media (max-width: 992px) {
