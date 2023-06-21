@@ -36,6 +36,7 @@ if (isset($_POST["reqClearance"])) {
                     "clearance_id" => $clearanceFormID,
                     "officer_id" => $officer['id'],
                     "student_id" => $_SESSION['sid'],
+                    // "student_id" => get_hall(StdID),
                     "status" => "pending",
                     "remarks" => "Not Set",
                     "created_at" => date("d/m/Y"),
@@ -43,21 +44,10 @@ if (isset($_POST["reqClearance"])) {
                     "updated_at" => date("d/m/Y"),
                     "time_updated" => date("h:i a"),
                 ];
-                CRUD::insert("clearanceitem", $clearanceFormItem);
+                $res = CRUD::insert("clearanceitem", $clearanceFormItem);
                 
             }
-            $clearanceTeacherFormItem = [
-                "clearance_id" => $clearanceFormID,
-                "officer_id" => $student['officer_id'],
-                "student_id" => $_SESSION['sid'],
-                "status" => "pending",
-                "remarks" => "Not Set",
-                "created_at" => date("d/m/Y"),
-                "time_created" => date("h:i a"),
-                "updated_at" => date("d/m/Y"),
-                "time_updated" => date("h:i a"),
-            ];
-            $res = CRUD::insert("clearanceitem", $clearanceTeacherFormItem);
+            
             if ($res > 0){
                 $_SESSION['at'] = 'success';
                 $_SESSION['am'] = "Clearance Request Sent to all Offices";

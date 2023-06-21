@@ -122,20 +122,19 @@ CREATE TABLE `student` (
   `programme` varchar(191) DEFAULT NULL,
   `department` varchar(191) DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
-  `pwd` int(10) UNSIGNED DEFAULT NULL,
+  `pwd` varchar(100) DEFAULT NULL,
   `clearance_started` tinyint(3) UNSIGNED DEFAULT NULL,
-  `clearance_completed` tinyint(3) UNSIGNED DEFAULT NULL,
-  `officer_id` int(10) UNSIGNED DEFAULT NULL
+  `clearance_completed` tinyint(3) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`id`, `fullname`, `index_number`, `programme`, `department`, `gender`, `pwd`, `clearance_started`, `clearance_completed`, `officer_id`) VALUES
-(2, 'Prince Mireku', 'Fms/0034/19', 'applied biology', 'biology', 'male', 123456, 1, 0, NULL),
-(3, 'Agere Joseph', 'Fms/0008/19', 'applied chemistry', 'chemistry', 'male', 123456, 1, 0, NULL),
-(4, 'Agere Rebecca', 'Fms/0009/19', 'computer science', 'computer science', 'female', 123456, 1, 0, NULL);
+INSERT INTO `student` (`id`, `fullname`, `index_number`, `programme`, `department`, `gender`, `pwd`, `clearance_started`, `clearance_completed`) VALUES
+(2, 'Prince Mireku', 'Fms/0034/19', 'applied biology', 'biology', 'male', 123456, 1, 0),
+(3, 'Agere Joseph', 'Fms/0008/19', 'applied chemistry', 'chemistry', 'male', 123456, 1, 0),
+(4, 'Agere Rebecca', 'Fms/0009/19', 'computer science', 'computer science', 'female', 123456, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -187,8 +186,7 @@ ALTER TABLE `officer`
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `index_foreignkey_student_officer` (`officer_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`

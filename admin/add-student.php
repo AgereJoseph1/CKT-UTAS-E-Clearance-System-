@@ -37,14 +37,13 @@ if (isset($_POST['addStudent'])) {
             'department' =>$department,
             'clearance_started' => false,
             'clearance_completed' => false,
-            "officer_id" => 0,
             'pwd' => $pwd,
             'gender' =>$gender,
         ];
 
         $res = CRUD::insert("student", $student);
-        print_r($res);
-        exit();
+        // print_r($res);
+        // exit();
         if ($res > 0) {
             $_SESSION['at'] = 'success';
             $_SESSION['am'] = 'Student added successfully';
