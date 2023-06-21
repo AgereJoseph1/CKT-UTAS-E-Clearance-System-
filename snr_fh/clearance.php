@@ -7,7 +7,7 @@ teacherOnly();
 
 $ctx = [
     'title' => 'All Students', 
-    "studentClearances" => CRUD::query("clearanceitem", "gender='female' and status !='cleared'")
+    "studentClearances" => CRUD::query("clearanceitem", "officer_id=:pk and status ='pending' or status ='not cleared'",[':pk'=>$_SESSION['tid']]),
 ];
 
 

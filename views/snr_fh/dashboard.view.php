@@ -21,9 +21,9 @@
             <div class="col-sm-6 pr-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
                 
-                <h3 class="text-primary number"><?= $ctx['master']['class']?></h3>
+                <h3 class="text-primary number"><?= $ctx['FH_Tutor']['fullname']?></h3>
                 <!-- Changed class to Course -->
-                <p class="stat-text">Course</p>
+                <p class="stat-text">Snr_Hall Tutor</p>
               </div>
             </div>
             <div class="col-sm-6 pl-sm-2 statistics-grid">

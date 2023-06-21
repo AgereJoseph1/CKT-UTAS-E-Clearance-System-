@@ -11,5 +11,4 @@ $ctx = [
     "totalClearanceCount" => R::count("clearanceitem", "student_id=:pk", [":pk"=>$_SESSION['sid']]),
 ];
 
-
 render_view("student/clearance_receipt", $ctx);

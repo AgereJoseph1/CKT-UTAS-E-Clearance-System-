@@ -7,7 +7,7 @@ officerOnly();
 
 $ctx = [
     'title' => 'All Students',
-    "studentClearances" => CRUD::query("clearanceitem", "status !='cleared'")
+    "studentClearances" => CRUD::query("clearanceitem", "officer_id=:pk and status ='pending' or status ='not cleared'",[':pk'=>$_SESSION['oid']])
 ];
 
 if (isset($_POST['updateClearanceItem'])){
@@ -46,4 +46,4 @@ if (isset($_POST['updateClearanceItem'])){
 }
 
 
-render_view("snr_mh/clearance", $ctx);
+render_view("officer/clearance", $ctx);

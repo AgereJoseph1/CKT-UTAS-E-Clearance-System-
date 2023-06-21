@@ -27,8 +27,8 @@
     <?php if (strpos($_SERVER['SCRIPT_FILENAME'], "login") ==false) :?>
            <?php include_once VIEW_ROOT. "includes/sidebar.inc.php"?>
            <?php endif ?>
-  <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "bursar") !=false) :?>
-         <?php include_once VIEW_ROOT. "includes/sidebars/bursar.sidebar.inc.php"?>
+  <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "snr_fh") !=false) :?>
+         <?php include_once VIEW_ROOT. "includes/sidebars/snr_fh.sidebar.inc.php"?>
   <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "snr_mh") !=false) :?>
          <?php include_once VIEW_ROOT. "includes/sidebars/snr_mh.sidebar.inc.php"?>
   <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "staff") !=false) :?>

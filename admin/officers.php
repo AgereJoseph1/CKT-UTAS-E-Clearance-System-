@@ -33,7 +33,7 @@ if (isset($_POST['addOfficer'])) {
 
             $filename = uniqid() . '_' . $file['name'];
 
-            move_uploaded_file($file['tmp_name'], '../assets/uploads' . $filename);
+            move_uploaded_file($file['tmp_name'], '../assets/uploads/' . $filename);
         } else {
 
             $filename = '';

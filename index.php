@@ -63,10 +63,18 @@ if (isset($_POST['staffSignIn'])){
             $_SESSION["bid"] = $staff['id'];
             redirect("bursar/dashboard.php");
         }
-        elseif ($staff['role'] == 'snr_hall_tutor'){
+        elseif ($staff['role'] == 'snr_mhall_tutor'){
              $_SESSION["tid"] = $staff['id'];
             redirect("snr_mh/dashboard.php");
-        }else{
+
+        }
+        elseif ($staff['role']=='snr_fhall_tutor'){
+            $_SESSION["tid"] = $staff['id'];
+            redirect("snr_fh/dashboard.php");
+
+        }
+
+        else{
             $_SESSION["oid"] = $staff['id'];
             redirect("staff/dashboard.php");
         }

@@ -33,7 +33,7 @@
                         <tr>
                             <td><?= $studentClearance['student']['fullname'] ?></td>
                             <td><?= $studentClearance['student']['index_number'] ?></td>
-                            <td><?= $studentClearance['status'] ?></td>
+                            <td><?= $studentClearance['status']?></td>
 
                             <form method="post">
                                 <input type="hidden" value="<?= $studentClearance['student_id'] ?>" name="sid">

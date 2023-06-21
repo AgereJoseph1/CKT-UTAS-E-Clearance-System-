@@ -95,7 +95,8 @@
                             <option value="it_directorate">IT directorate</option>
                             <option value="computer_lab">computer lab</option>
                             <option value="deen">Deen</option>
-                            <option value="snr_hall_tutor">Snr_hall_tutor</option>
+                            <option value="snr_mhall_tutor">Snr_mhall_tutor</option>
+                            <option value="snr_fhall_tutor">Snr_fhall_tutor</option>
                             <option value="cmps_coach">cmps_coach</option>
                             <option value="phy_lab">Physics_lab</option>
                             <option value="bio_lab">Biology_lab</option>
@@ -105,11 +106,6 @@
                     <!-- <div class=" form-group">
                         <label for="">Office</label>
                         <select name="office" id="" class="form-control">
-                            <?php foreach ($ctx['offices'] as $office): ?>
-                                <?php if ($office['name'] != "Form Teacher"): ?>
-                                    <option value="<?= $office['id'] ?>"><?= $office['name'] ?></option>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
                         </select>
                     </div> -->
                     <div class="form-group">
