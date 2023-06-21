@@ -3,7 +3,7 @@
 // Teacher Adds Student
 
 require_once "../app/app.php";
-teacherOnly();
+adminOnly();
 
 $ctx = [
     'title' => 'Add Student'
@@ -12,33 +12,39 @@ $ctx = [
 if (isset($_POST['addStudent'])) {
     $fn = $_POST['fname'];
     $in = $_POST['index_no'];
+    $program=$_POST['program'];
+    $department=$_POST['department'];
+    $gender=$_POST['gender'];
     $pwd = "123456";
+    $pwd=md5($pwd);
 
 
     if (empty($fn) || empty($in)) {
         $_SESSION['at'] = 'warning';
         $_SESSION['am'] = 'All fields are required';
-    
-    // Checks if student exist in db
+
+        // Checks if student exist in db
     }elseif (CRUD::querySingle("student", "index_number=:indx", [':indx'=>$in])){
         $_SESSION['at'] = 'warning';
         $_SESSION['am'] = 'Student already recorded';
 
     }else{
         // Insert record
-        $teacher = CRUD::querySingle("officer", "id=:pk", [':pk'=>$_SESSION['tid']]);
         $student = [
             'fullname' => $fn,
             'index_number' => $in,
-            'class' => $teacher['class'],
+            'programme' =>$program,
+            'department' =>$department,
             'clearance_started' => false,
             'clearance_completed' => false,
-            'institution_id' => $teacher['institution_id'],
-            "officer_id" => $teacher['id'],
-            'pwd' => $pwd
+            "officer_id" => 0,
+            'pwd' => $pwd,
+            'gender' =>$gender,
         ];
 
         $res = CRUD::insert("student", $student);
+        print_r($res);
+        exit();
         if ($res > 0) {
             $_SESSION['at'] = 'success';
             $_SESSION['am'] = 'Student added successfully';
@@ -50,4 +56,4 @@ if (isset($_POST['addStudent'])) {
     redirect("add-student.php");
 }
 
-render_view("teacher/add-student", $ctx);
+render_view("admin/add-student", $ctx);

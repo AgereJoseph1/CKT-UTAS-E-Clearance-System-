@@ -2,7 +2,7 @@
 
     <!-- logo start -->
     <div class="logo">
-      <h1><a href="index.html">Eclear</a></h1>
+      <h1><a href="index.php">Eclear</a></h1>
     </div>
 
 
@@ -29,8 +29,8 @@
           <a href="#"><i class="fa fa-building-o"></i>
             <span>Students</span></a>
           <ul class="sub-menu-list">
-            <li><a href="#!">Add students</a> </li>
-            <li><a href="#!">All students</a> </li>
+            <li><a href="add-student.php">Add students</a> </li>
+            <li><a href="students.php">All students</a> </li>
           </ul>
         </li>
       </ul>

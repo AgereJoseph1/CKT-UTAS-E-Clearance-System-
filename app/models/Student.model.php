@@ -6,6 +6,9 @@ class Student{
         $studentModel['course'] = $student['crs'];
         $studentModel['fullname'] = $student['fn'];
         $studentModel['index_number'] = $student['in'];
+        $studentModel['programme'] = $student['program'];
+        $studentModel['department'] = $student['department'];
+        $studentModel['gender'] = $student['gender'];
         $studentModel['requested_clearance'] = false;
         $studentModel['is_cleared'] = false;
         $studentModel['password'] = $student['pwd'];

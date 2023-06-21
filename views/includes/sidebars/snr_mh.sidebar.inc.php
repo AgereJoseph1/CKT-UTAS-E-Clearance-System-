@@ -19,7 +19,6 @@
                     <span>Students </a>
                 <ul class="sub-menu-list">
                     <li><a href="students.php">All students</a> </li>
-                    <li><a href="add-student.php">Add Student</a> </li>
                 </ul>
             </li>
             <li class="menu-list">

@@ -7,7 +7,7 @@ teacherOnly();
 
 $ctx = [
     'title' => 'All Students', 
-    "studentClearances" => CRUD::query("clearanceitem", "officer_id=:pk and status !='cleared'", [':pk' => $_SESSION['tid']])
+    "studentClearances" => CRUD::query("clearanceitem", "gender='female' and status !='cleared'")
 ];
 
 
@@ -47,4 +47,4 @@ if (isset($_POST['updateClearanceItem'])){
 }
 
 
-render_view("teacher/clearance", $ctx);
+render_view("snr_fh/clearance", $ctx);

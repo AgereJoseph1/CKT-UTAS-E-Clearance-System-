@@ -6,50 +6,36 @@ adminOnly();
 
 $ctx = [
     "title" => "All Staff",
-    'institutions' => CRUD::query('institution'),
+    "officers" => CRUD::query('officer'),
 ];
-
-
-if (isset($_SESSION['selectedInstitutionOfficerID'])){
-    $ctx['officers'] = CRUD::query("officer", "institution_id=:id", [':id' =>$_SESSION['selectedInstitutionOfficerID']]);
-    $ctx['offices'] = CRUD::query("office", "institution_id=:id", [':id' =>$_SESSION['selectedInstitutionOfficerID']]);
-}
-
-
-if (isset($_GET['clr'])){
-    unset($_SESSION['selectedInstitutionOfficerID']);
-    redirect("officers.php");
-}
-
-if (isset($_POST['setInstitutionOfficersID'])){
-    $_SESSION['selectedInstitutionOfficerID'] = $_POST['instID'];
-    redirect("officers.php");
-}
 
 if (isset($_POST['addOfficer'])){
     $fn = $_POST['fname'];
     $em = $_POST['email'];
     $phn = $_POST['phone'];
-    $off = $_POST['office'];
     $role = $_POST['role'];
     $signature = $_POST['signature'];
-
+    $pwd='123456';
+    $pwd=md5($pwd);
 
     if (
-        empty($fn) || empty($em) || empty($phn || strlen($phn) != 10 || empty($office) || empty($role)
+        empty($fn) || empty($em) || empty($phn || strlen($phn) != 10  || empty($role)
         ) ){
         $_SESSION['at'] = 'warning';
         $_SESSION['am'] = 'All fields are required';
         redirect("officers.php");
-    }else{
+    }elseif((CRUD::querySingle("officer", "role=:rle", [':rle'=>$role]))){
+        $_SESSION['at'] = 'warning';
+        $_SESSION['am'] = 'officer with that role is  already recorded';
+    }
+    else{
         $officer = [
-            'office_id' => $off,
             'email' => $em,
             'phone' => $phn,
             'fullname' => $fn,
             'role' => $role,
-            'password' => "123456",
             'signature' => $signature,
+            'password' => $pwd,
             'created_at' => date("d/m/Y")
         ];
 

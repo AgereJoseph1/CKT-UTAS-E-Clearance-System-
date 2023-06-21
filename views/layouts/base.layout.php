@@ -29,8 +29,8 @@
            <?php endif ?>
   <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "bursar") !=false) :?>
          <?php include_once VIEW_ROOT. "includes/sidebars/bursar.sidebar.inc.php"?>
-  <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "teacher") !=false) :?>
-         <?php include_once VIEW_ROOT. "includes/sidebars/teacher.sidebar.inc.php"?>
+  <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "snr_mh") !=false) :?>
+         <?php include_once VIEW_ROOT. "includes/sidebars/snr_mh.sidebar.inc.php"?>
   <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "staff") !=false) :?>
          <?php include_once VIEW_ROOT. "includes/sidebars/staff.sidebar.inc.php"?>
     <?php endif; ?>

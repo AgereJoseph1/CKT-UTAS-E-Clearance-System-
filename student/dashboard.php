@@ -30,11 +30,10 @@ if (isset($_POST["reqClearance"])) {
 
         if (!isset($checkStudentClearanceForm['student_id'])){
             $clearanceFormID = CRUD::insert("clearance", $clearanceForm);
-            $officers = CRUD::query("officer", "institution_id=:sid and role != 'form master';", [':sid'=>$student['institution_id']]);
+            $officers = CRUD::query("officer" );
             foreach ($officers as $officer){
                 $clearanceFormItem = [
                     "clearance_id" => $clearanceFormID,
-                    "office_id" => $officer['office_id'],
                     "officer_id" => $officer['id'],
                     "student_id" => $_SESSION['sid'],
                     "status" => "pending",
@@ -49,7 +48,6 @@ if (isset($_POST["reqClearance"])) {
             }
             $clearanceTeacherFormItem = [
                 "clearance_id" => $clearanceFormID,
-                "office_id" => $student['officer']['office_id'],
                 "officer_id" => $student['officer_id'],
                 "student_id" => $_SESSION['sid'],
                 "status" => "pending",

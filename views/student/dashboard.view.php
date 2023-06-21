@@ -75,8 +75,8 @@
                               <table class="table">
                                   <thead>
                                       <tr>
-                                          <th>Office</th>
-                                          <th>Officer</th>
+                                          <th>Officer Name</th>
+                                          <th>Officer Role</th>
                                           <th>Status</th>
                                           <th>Remarks</th>
                                           <th>Date</th>
@@ -89,11 +89,11 @@
                                       <tr>
                                           <td>
                                               <span class="fw-bold">
-                                                  <?= $clearance_item['office']['name'] == "Classroom" ? "Class Master" : $clearance_item['office']['name'] ?>
+                                                  <?= $clearance_item['officer']['fullname'] ?>
                                               </span>
                                           </td>
                                           <td>
-                                              <?php echo $clearance_item['officer'] != null ? $clearance_item['officer']['fullname'] : $clearance_item['formmaster']['fullname']  ?>
+                                              <?=$clearance_item['officer']['role']?>
                                           </td>
                                           <td>
                                               <?php if ($clearance_item['status'] == "cleared"): ?>

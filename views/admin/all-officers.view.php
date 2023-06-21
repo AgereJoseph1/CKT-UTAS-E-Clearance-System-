@@ -9,43 +9,16 @@
                 <li class="breadcrumb-item active" aria-current="page">All Officers</li>
             </ol>
         </nav>
-        <?php if (!isset($_SESSION['selectedInstitutionOfficerID'])) : ?>
-            <div class="row">
-                <div class="col-12 offset-md-4 col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title text-center">Choose Institution</h4>
-                            <form method="POST">
-                                <label for="">Select Institution:</label>
-                                <input type="text" list="institutions" name="instID" class="form-control">
-                                <datalist id="institutions">
-                                    <?php foreach ($ctx['institutions'] as $institution): ?>
-                                        <option value="<?= $institution['id'] ?>">
-                                            <?= $institution['i_name'] ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </datalist>
-
-                                <div class="form-group mt-3">
-                                    <button type="submit" name="setInstitutionOfficersID"
-                                            class="btn btn-block btn-secondary">Proceed
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php else: ?>
             <div>
                 <div class="d-flex justify-content-between">
                     <a href="officers.php?clr=1" class="btn btn-danger mb-1">Back</a>
                     <button class="btn btn-dark mb-1" data-toggle="modal" data-target="#addOfficer">Add New Officer +
                     </button>
                 </div>
+                <?php include_once VIEW_ROOT . "includes/alerts.inc.php" ?>
                 <div class="row">
                     <div class="col-12 offset-md-4 col-md-4">
-                        <?php include_once VIEW_ROOT . "includes/alerts.inc.php" ?>
+
                     </div>
                 </div>
                 <div class="card">
@@ -53,8 +26,8 @@
                         <table class="table table-bordered table-hover">
                             <thead class="table-info">
                             <tr>
-                                <th>Office Name</th>
                                 <th>Officer Name</th>
+                                <th>Officer Role</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -62,7 +35,7 @@
                             <?php foreach ($ctx['officers'] as $officer): ?>
                                 <tr>
                                     <td>Mr. <?= $officer['fullname'] ?></td>
-                                    <td><?= $officer->office['name'] ?></td>
+                                    <td><?= $officer['role'] ?></td>
                                     <td class="d-flex justify-content-center">
                                         <!-- <form action="add-office.php" method="POST">
                                       <input type="hidden" value="<?= $officer['id'] ?>" name="oid">
@@ -84,7 +57,6 @@
                 </div>
 
             </div>
-        <?php endif; ?>
     </div>
 </div>
 
@@ -119,8 +91,15 @@
                         <label for="">Role:</label>
                         <select name="role" id="id" class="form-control">
                             <option value="librarian">Librarian</option>
-                            <option value="bursar">Bursar</option>
-                            <option value="other">Other</option>
+                            <option value="accountant">Accountant</option>
+                            <option value="it_directorate">IT directorate</option>
+                            <option value="computer_lab">computer lab</option>
+                            <option value="deen">Deen</option>
+                            <option value="snr_hall_tutor">Snr_hall_tutor</option>
+                            <option value="cmps_coach">cmps_coach</option>
+                            <option value="phy_lab">Physics_lab</option>
+                            <option value="bio_lab">Biology_lab</option>
+                            <option value="chem_lab">chemistry_lab</option>
                         </select>
                     </div>
                     <!-- <div class=" form-group">

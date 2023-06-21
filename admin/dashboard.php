@@ -8,7 +8,7 @@ $ctx = [
     "officeCount" => R::count("office"),
     "officerCount" => R::count("formmaster") + R::count("officer"),
     "institutionCount" => R::count("institution"),
-    "headmasterCount" => R::count("headmaster"),
+    "studentcount" => R::count("student"),
 ];
 
 

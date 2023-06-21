@@ -5,7 +5,7 @@
 
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb my-breadcrumb">
-        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
       </ol>
     </nav>
@@ -20,16 +20,17 @@
           <div class="row">
             <div class="col-sm-6 pr-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
-                <i class="fa fa-users text-info"> </i>
-                <h3 class="text-primary number"><?= $ctx['officeCount'] ?></h3>
-                <p class="stat-text">Offices</p>
+                
+                <h3 class="text-primary number"><?= $ctx['MH_Tutor']['fullname']?></h3>
+                <!-- Changed class to Course -->
+                <p class="stat-text">Hall Tutor</p>
               </div>
             </div>
             <div class="col-sm-6 pl-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
-                <i class="fa fa-user-circle text-primary"> </i>
-                <h3 class="text-secondary number"><?= $ctx['officerCount'] ?></h3>
-                <p class="stat-text">Officers</p>
+              <i class="fa fa-users text-info"> </i>
+                <h3 class="text-secondary number"><?= $ctx['studentCount'] ?></h3>
+                <p class="stat-text">Student Count</p>
               </div>
             </div>
           </div>
@@ -38,16 +39,16 @@
           <div class="row">
             <div class="col-sm-6 pr-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
-                <i class="fa fa-building text-info"> </i>
-                <h3 class="text-info number"><?= $ctx['institutionCount'] ?? 0 ?></h3>
-                <p class="stat-text">Institution Count</p>
+                <i class="fa fa-angle-double-up text-success"> </i>
+                <h3 class="text-success number"><?= $ctx['clearedStudentCount'] ?></h3>
+                <p class="stat-text">Cleared Students</p>
               </div>
             </div>
             <div class="col-sm-6 pl-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
-                <i class="fa fa-user-circle-o text-info"> </i>
-                <h3 class="text-info number"><?= $ctx['studentcount'] ?? 0 ?></h3>
-                <p class="stat-text">Students</p>
+                <i class="fa fa-angle-double-down text-danger"> </i>
+                <h3 class="text-danger number"><?= $ctx['notClearedStudentCount'] ?></h3>
+                <p class="stat-text">Uncleared Students</p>
               </div>
             </div>
           </div>

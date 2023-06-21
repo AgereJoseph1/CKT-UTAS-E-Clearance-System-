@@ -46,6 +46,7 @@ if (isset($_POST['studentSignIn'])){
 if (isset($_POST['staffSignIn'])){
     $semail = trim($_POST['semail']);
     $spwd = trim($_POST['spwd']);
+    $spwd=md5($spwd);
 
     if (empty($semail) || empty($spwd)){
         $_SESSION['sat'] = 'danger';
@@ -58,17 +59,13 @@ if (isset($_POST['staffSignIn'])){
 
 
     if ($staff['password'] == $spwd ){
-        if ($staff['role'] == 'librarian'){
-            $_SESSION["lid"] = $staff['id'];
-            redirect("library/dashboard.php");
-        }
-        elseif ($staff['role'] == 'bursar'){
+        if ($staff['role'] == 'bursar'){
             $_SESSION["bid"] = $staff['id'];
             redirect("bursar/dashboard.php");
         }
-        elseif ($staff['role'] == 'form master'){
+        elseif ($staff['role'] == 'snr_hall_tutor'){
              $_SESSION["tid"] = $staff['id'];
-            redirect("teacher/dashboard.php");
+            redirect("snr_mh/dashboard.php");
         }else{
             $_SESSION["oid"] = $staff['id'];
             redirect("staff/dashboard.php");

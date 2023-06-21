@@ -29,7 +29,7 @@ function notAuthenticatedOnly(){
     elseif (isset($_SESSION['aid'])){
         redirect("../admin/dashboard.php");
     }elseif (isset($_SESSION['tid'])){
-        redirect("../teacher/dashboard.php");
+        redirect("../snr_mh/dashboard.php");
     }elseif (isset($_SESSION['bid'])){
         redirect("../bursar/dashboard.php");
     }elseif (isset($_SESSION['lid'])){

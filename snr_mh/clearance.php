@@ -3,12 +3,13 @@
 // Show All Students
 
 require_once "../app/app.php";
-officerOnly();
+teacherOnly();
 
 $ctx = [
-    'title' => 'All Students',
-    "studentClearances" => CRUD::query("clearanceitem", "status !='cleared'")
+    'title' => 'All Students', 
+    "studentClearances" => CRUD::query("clearanceitem", "gender='male' and status !='cleared'")
 ];
+
 
 if (isset($_POST['updateClearanceItem'])){
     $studentID = $_POST['sid'];
@@ -22,7 +23,7 @@ if (isset($_POST['updateClearanceItem'])){
     ];
 
     $res = CRUD::update("clearanceitem", $fields, $clearID);
-
+    
     if ($res == 1){
         $totalClearedCount = R::count("clearanceitem", "student_id=:pk and status='cleared'", [":pk"=> $studentID]);
         $totalClearanceCount = R::count("clearanceitem", "student_id=:pk", [":pk"=> $studentID]);
@@ -42,7 +43,7 @@ if (isset($_POST['updateClearanceItem'])){
         redirect("clearance.php");
 
     }
-
+    
 }
 
 

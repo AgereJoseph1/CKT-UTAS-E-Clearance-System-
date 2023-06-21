@@ -47,4 +47,4 @@ if (isset($_POST['updateClearanceItem'])){
 }
 
 
-render_view("teacher/clearance", $ctx);
+render_view("snr_mh/clearance", $ctx);
