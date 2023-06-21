@@ -71,7 +71,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     <div class=" form-group">
                         <label for="">Full Name</label>
                         <input type="text" name="fname" class="form-control">
