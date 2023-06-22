@@ -41,6 +41,11 @@ if (isset($_POST['addStudent'])) {
             'gender' =>$gender,
         ];
         $res = CRUD::insert("student", $student);
+<<<<<<< HEAD
+=======
+        // print_r($res);
+        // exit();
+>>>>>>> af6378607493a7c89056315fe10f8cf82cd76d96
         if ($res > 0) {
             $_SESSION['at'] = 'success';
             $_SESSION['am'] = 'Student added successfully';

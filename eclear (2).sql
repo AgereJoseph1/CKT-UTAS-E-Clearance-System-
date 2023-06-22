@@ -109,7 +109,7 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
--- --------------------------------------------------------
+
 
 --
 -- Table structure for table `user`
@@ -160,7 +160,10 @@ ALTER TABLE `officer`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`id`);
+<<<<<<< HEAD
 
+=======
+>>>>>>> af6378607493a7c89056315fe10f8cf82cd76d96
 
 --
 -- Indexes for table `user`

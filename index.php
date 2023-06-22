@@ -12,16 +12,16 @@ if (isset($_POST['studentSignIn'])){
     $stid = trim($_POST['stid']);
     $pass = md5(trim($_POST['spwd']));
 
-
     if (empty($stid) || empty($pass)) {
         $_SESSION['lat'] = 'warning';
         $_SESSION['lam'] = "Field cannot be empty";
         redirect("../eclear/");
     }
     $res = CRUD::querySingle("student", "index_number=:in", [":in" => $stid]);
+    
     if (isset($res['index_number'])){
         if ($res['pwd'] == $pass){
-
+            
             /*
              # Query student table for amount of fees
              # If fees is <= 0:
