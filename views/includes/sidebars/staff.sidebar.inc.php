@@ -2,7 +2,7 @@
 
     <!-- logo start -->
     <div class="logo">
-        <h1><a href="index.html">Eclear</a></h1>
+        <h1><a href="dashboard.php">Eclear</a></h1>
     </div>
 
 

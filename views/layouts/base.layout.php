@@ -19,9 +19,9 @@
 <body>
 
 <section>
-  <?php if (strpos($_SERVER['SCRIPT_FILENAME'], "library") !=false) :?>
+  <?php if (strpos($_SERVER['SCRIPT_FILENAME'], "chem_lab") !=false) :?>
         <!-- sidebar menu start -->
-      <?php include_once VIEW_ROOT. "includes/sidebars/library.sidebar.inc.php"?>
+      <?php include_once VIEW_ROOT. "includes/sidebars/chem_lab.sidebar.inc.php"?>
 
   <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "admin") !=false) :?>
     <?php if (strpos($_SERVER['SCRIPT_FILENAME'], "login") ==false) :?>
@@ -29,6 +29,10 @@
            <?php endif ?>
   <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "snr_fh") !=false) :?>
          <?php include_once VIEW_ROOT. "includes/sidebars/snr_fh.sidebar.inc.php"?>
+  <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "bio_lab") !=false) :?>
+      <?php include_once VIEW_ROOT. "includes/sidebars/bio_lab.sidebar.inc.php"?>
+  <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "phy_lab") !=false) :?>
+      <?php include_once VIEW_ROOT. "includes/sidebars/phy_lab.sidebar.inc.php"?>
   <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "snr_mh") !=false) :?>
          <?php include_once VIEW_ROOT. "includes/sidebars/snr_mh.sidebar.inc.php"?>
   <?php elseif (strpos($_SERVER['SCRIPT_FILENAME'], "staff") !=false) :?>

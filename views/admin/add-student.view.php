@@ -34,11 +34,11 @@
                                     <label for="">department:</label>
                                     <select name="department" id="id" class="form-control">
                                         <option value="computer science">computer science</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Biology">Mathematics</option>
-                                        <option value="Environmental Science">Environmental Science</option>
+                                        <option value="biology">Biology</option>
+                                        <option value="chemistry">Chemistry</option>
+                                        <option value="physics">Physics</option>
+                                        <option value="mathematics">Mathematics</option>
+                                        <option value="environmental science">Environmental Science</option>
                                         <option value="other">Other</option>
                                     </select>
                             </div>

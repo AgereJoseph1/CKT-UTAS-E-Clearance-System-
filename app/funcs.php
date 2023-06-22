@@ -83,14 +83,34 @@ function librarianOnly(){
         redirect("../");
     }
 }
-function headmasterOnly(){
-    if (!isset($_SESSION['hid'])){
+function seniorFHallSuppervsiorOnly(){
+    if (!isset($_SESSION['fid'])){
         $_SESSION['at'] = "warning";
         $_SESSION['am'] = "Not Allowed";
         redirect("../");
     }
 }
-
+function chemistryLabOnly(){
+    if (!isset($_SESSION['cid'])){
+        $_SESSION['at'] = "warning";
+        $_SESSION['am'] = "Not Allowed";
+        redirect("../");
+    }
+}
+function biologyLabOnly(){
+    if (!isset($_SESSION['bid'])){
+        $_SESSION['at'] = "warning";
+        $_SESSION['am'] = "Not Allowed";
+        redirect("../");
+    }
+}
+function physicsLabOnly(){
+    if (!isset($_SESSION['pid'])){
+        $_SESSION['at'] = "warning";
+        $_SESSION['am'] = "Not Allowed";
+        redirect("../");
+    }
+}
 function teacherOnly(){
     if (!isset($_SESSION['tid'])){
         $_SESSION['at'] = "warning";

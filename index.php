@@ -10,7 +10,8 @@ $ctx = [
 
 if (isset($_POST['studentSignIn'])){
     $stid = trim($_POST['stid']);
-    $pass = trim($_POST['spwd']);
+    $pass = md5(trim($_POST['spwd']));
+
 
     if (empty($stid) || empty($pass)) {
         $_SESSION['lat'] = 'warning';
@@ -59,18 +60,29 @@ if (isset($_POST['staffSignIn'])){
 
 
     if ($staff['password'] == $spwd ){
-        if ($staff['role'] == 'bursar'){
-            $_SESSION["bid"] = $staff['id'];
-            redirect("bursar/dashboard.php");
-        }
-        elseif ($staff['role'] == 'snr_mhall_tutor'){
+        if ($staff['role'] == 'snr_mhall_tutor'){
              $_SESSION["tid"] = $staff['id'];
             redirect("snr_mh/dashboard.php");
 
         }
         elseif ($staff['role']=='snr_fhall_tutor'){
-            $_SESSION["tid"] = $staff['id'];
+            $_SESSION["fid"] = $staff['id'];
             redirect("snr_fh/dashboard.php");
+
+        }
+        elseif ($staff['role']=='chem_lab'){
+            $_SESSION["cid"] = $staff['id'];
+            redirect("chem_lab/dashboard.php");
+
+        }
+        elseif ($staff['role']=='bio_lab'){
+            $_SESSION["bid"] = $staff['id'];
+            redirect("bio_lab/dashboard.php");
+
+        }
+        elseif ($staff['role']=='phy_lab'){
+            $_SESSION["pid"] = $staff['id'];
+            redirect("phy_lab/dashboard.php");
 
         }
 

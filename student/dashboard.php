@@ -43,21 +43,21 @@ if (isset($_POST["reqClearance"])) {
                     "updated_at" => date("d/m/Y"),
                     "time_updated" => date("h:i a"),
                 ];
-                CRUD::insert("clearanceitem", $clearanceFormItem);
+               $res= CRUD::insert("clearanceitem", $clearanceFormItem);
                 
             }
-            $clearanceTeacherFormItem = [
-                "clearance_id" => $clearanceFormID,
-                "officer_id" => $student['officer_id'],
-                "student_id" => $_SESSION['sid'],
-                "status" => "pending",
-                "remarks" => "Not Set",
-                "created_at" => date("d/m/Y"),
-                "time_created" => date("h:i a"),
-                "updated_at" => date("d/m/Y"),
-                "time_updated" => date("h:i a"),
-            ];
-            $res = CRUD::insert("clearanceitem", $clearanceTeacherFormItem);
+//            $clearanceTeacherFormItem = [
+//                "clearance_id" => $clearanceFormID,
+//                "officer_id" => $student['officer_id'],
+//                "student_id" => $_SESSION['sid'],
+//                "status" => "pending",
+//                "remarks" => "Not Set",
+//                "created_at" => date("d/m/Y"),
+//                "time_created" => date("h:i a"),
+//                "updated_at" => date("d/m/Y"),
+//                "time_updated" => date("h:i a"),
+//            ];
+//            $res = CRUD::insert("clearanceitem", $clearanceTeacherFormItem);
             if ($res > 0){
                 $_SESSION['at'] = 'success';
                 $_SESSION['am'] = "Clearance Request Sent to all Offices";
@@ -74,5 +74,4 @@ if (isset($_POST["reqClearance"])) {
         $_SESSION['am'] = $update;
     }
 }
-
 render_view("student/dashboard", $ctx, "sdashboard");

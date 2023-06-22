@@ -3,11 +3,11 @@
 // Show All Students
 
 require_once "../app/app.php";
-seniorFHallSuppervsiorOnly();
+biologyLabOnly();
 
 $ctx = [
-    'title' => 'All Students', 
-    "studentClearances" => CRUD::query("clearanceitem", "officer_id=:pk and status ='pending' or status ='not cleared'",[':pk'=>$_SESSION['fid']]),
+    'title' => 'All Students',
+    "studentClearances" => CRUD::query("clearanceitem", "officer_id=:pk and status ='pending' or status ='not cleared'",[':pk'=>$_SESSION['bid']]),
 ];
 
 
@@ -47,4 +47,4 @@ if (isset($_POST['updateClearanceItem'])){
 }
 
 
-render_view("snr_fh/clearance", $ctx);
+render_view("bio_lab/clearance", $ctx);

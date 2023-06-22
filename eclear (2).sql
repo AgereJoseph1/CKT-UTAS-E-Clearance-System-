@@ -40,11 +40,6 @@ CREATE TABLE `clearance` (
 -- Dumping data for table `clearance`
 --
 
-INSERT INTO `clearance` (`id`, `student_id`, `is_completed`, `code`, `created_at`, `created_time`) VALUES
-(11, NULL, 0, '64923b69dc', '21/06/2023', '01:51 am'),
-(12, 2, 0, '649241622c', '21/06/2023', '02:16 am'),
-(13, 4, 0, '64924b5209', '21/06/2023', '02:58 am'),
-(14, 3, 0, '64924c2336', '21/06/2023', '03:02 am');
 
 -- --------------------------------------------------------
 
@@ -69,18 +64,6 @@ CREATE TABLE `clearanceitem` (
 -- Dumping data for table `clearanceitem`
 --
 
-INSERT INTO `clearanceitem` (`id`, `clearance_id`, `officer_id`, `student_id`, `status`, `remarks`, `created_at`, `time_created`, `updated_at`, `time_updated`) VALUES
-(2, 12, 1, 2, 'pending', 'Not Set', '21/06/2023', '02:16 am', '21/06/2023', '02:16 am'),
-(3, 12, 2, 2, 'pending', 'Not Set', '21/06/2023', '02:16 am', '21/06/2023', '02:16 am'),
-(4, 12, 3, 2, 'pending', 'Not Set', '21/06/2023', '02:16 am', '21/06/2023', '02:16 am'),
-(6, 13, 1, 4, 'pending', 'Not Set', '21/06/2023', '02:58 am', '21/06/2023', '02:58 am'),
-(7, 13, 2, 4, 'pending', 'Not Set', '21/06/2023', '02:58 am', '21/06/2023', '02:58 am'),
-(8, 13, 3, 4, 'pending', 'Not Set', '21/06/2023', '02:58 am', '21/06/2023', '02:58 am'),
-(9, 13, 4, 4, 'pending', 'Not Set', '21/06/2023', '02:58 am', '21/06/2023', '02:58 am'),
-(11, 14, 1, 3, 'pending', 'Not Set', '21/06/2023', '03:02 am', '21/06/2023', '03:02 am'),
-(12, 14, 2, 3, 'pending', 'Not Set', '21/06/2023', '03:02 am', '21/06/2023', '03:02 am'),
-(13, 14, 3, 3, 'pending', 'Not Set', '21/06/2023', '03:02 am', '21/06/2023', '03:02 am'),
-(14, 14, 4, 3, 'pending', 'Not Set', '21/06/2023', '03:02 am', '21/06/2023', '03:02 am');
 
 -- --------------------------------------------------------
 
@@ -95,7 +78,7 @@ CREATE TABLE `officer` (
   `fullname` varchar(191) DEFAULT NULL,
   `role` varchar(191) DEFAULT NULL,
   `signature` varchar(191) DEFAULT NULL,
-  `password` varchar(300) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
   `created_at` varchar(191) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
@@ -103,11 +86,6 @@ CREATE TABLE `officer` (
 -- Dumping data for table `officer`
 --
 
-INSERT INTO `officer` (`id`, `email`, `phone`, `fullname`, `role`, `signature`, `password`, `created_at`) VALUES
-(1, 'agere@gmail.com', '0541433448', 'Agere Joseph', 'librarian', '', 'e10adc3949ba59abbe56e057f20f883e', '20/06/2023'),
-(2, 'prince@gmail.com', '0541433448', 'Prince Mireku ', 'deen', '', 'e10adc3949ba59abbe56e057f20f883e', '20/06/2023'),
-(3, 'emma@gmail.com', '0541433448', 'Agere Joseph', 'bio_lab', '', 'e10adc3949ba59abbe56e057f20f883e', '20/06/2023'),
-(4, 'atanga@gmail.com', '0541433448', 'Emmanuel Atanga', 'snr_hall_tutor', '', 'e10adc3949ba59abbe56e057f20f883e', '21/06/2023');
 
 -- --------------------------------------------------------
 
@@ -122,20 +100,14 @@ CREATE TABLE `student` (
   `programme` varchar(191) DEFAULT NULL,
   `department` varchar(191) DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
-  `pwd` int(10) UNSIGNED DEFAULT NULL,
+  `pwd` varchar(100)  DEFAULT NULL,
   `clearance_started` tinyint(3) UNSIGNED DEFAULT NULL,
-  `clearance_completed` tinyint(3) UNSIGNED DEFAULT NULL,
-  `officer_id` int(10) UNSIGNED DEFAULT NULL
+  `clearance_completed` tinyint(3) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `student`
 --
-
-INSERT INTO `student` (`id`, `fullname`, `index_number`, `programme`, `department`, `gender`, `pwd`, `clearance_started`, `clearance_completed`, `officer_id`) VALUES
-(2, 'Prince Mireku', 'Fms/0034/19', 'applied biology', 'biology', 'male', 123456, 1, 0, NULL),
-(3, 'Agere Joseph', 'Fms/0008/19', 'applied chemistry', 'chemistry', 'male', 123456, 1, 0, NULL),
-(4, 'Agere Rebecca', 'Fms/0009/19', 'computer science', 'computer science', 'female', 123456, 1, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -187,8 +159,8 @@ ALTER TABLE `officer`
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `index_foreignkey_student_officer` (`officer_id`);
+  ADD PRIMARY KEY (`id`);
+
 
 --
 -- Indexes for table `user`

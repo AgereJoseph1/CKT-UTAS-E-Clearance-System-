@@ -2,7 +2,7 @@
 
     <!-- logo start -->
     <div class="logo">
-        <h1><a href="index.php">Eclear</a></h1>
+        <h1><a href="dashboard.php">Eclear</a></h1>
     </div>
 
 
@@ -14,13 +14,7 @@
         <ul class="nav nav-pills nav-stacked custom-nav">
             <li class="active"><a href="dashboard.php"><i class="fa fa-tachometer"></i><span> Dashboard</span></a>
             </li>
-            <li class="menu-list">
-                <a href="#"><i class="fa fa-table"></i>
-                    <span>Students </a>
-                <ul class="sub-menu-list">
-                    <li><a href="students.php">All students</a> </li>
-                </ul>
-            </li>
+
             <li class="menu-list">
                 <a href="#"><i class="fa fa-user"></i>
                     <span>Clearance </a>
