@@ -12,49 +12,51 @@
         <div class="row">
             <div class="col-12 offset-md-3 col-md-6">
                 <a href="students.php" class="btn btn-primary mb-1">View All Students</a>
-                <!-- Added new button for the option to upload .csv file -->
-                <a href="#!" class="btn btn-primary mb-1">Upload .CSV</a>
-                <div class="card">
-                    <?php include_once VIEW_ROOT."includes/alerts.inc.php" ?>
-                    <div class="card-body">
-                        <form method="POST">
-                            <div class=" form-group">
-                                <label for="">Full Name</label>
-                                <input type="text" name="fname" class="form-control">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="card">
+                        <?php include_once VIEW_ROOT."includes/alerts.inc.php" ?>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="csv_file">Upload CSV</label>
+                                <input type="file" name="csv_file" id="csv_file" class="form-control-file">
                             </div>
                             <div class=" form-group">
-                                <label for="">Index Number:</label>
-                                <input type="text" name="index_no" class="form-control">
+                                <label for="fname">Full Name</label>
+                                <input type="text" name="fname" id="fname" class="form-control">
                             </div>
                             <div class=" form-group">
-                                <label for="">Programme:</label>
-                                <input type="text" name="program" class="form-control">
+                                <label for="index_no">Index Number:</label>
+                                <input type="text" name="index_no" id="index_no" class="form-control">
+                            </div>
+                            <div class=" form-group">
+                                <label for="program">Programme:</label>
+                                <input type="text" name="program" id="program" class="form-control">
                             </div>
                             <div class="form-group">
-                                    <label for="">department:</label>
-                                    <select name="department" id="id" class="form-control">
-                                        <option value="computer science">computer science</option>
-                                        <option value="biology">Biology</option>
-                                        <option value="chemistry">Chemistry</option>
-                                        <option value="physics">Physics</option>
-                                        <option value="mathematics">Mathematics</option>
-                                        <option value="environmental science">Environmental Science</option>
-                                        <option value="other">Other</option>
-                                    </select>
+                                <label for="department">Department:</label>
+                                <select name="department" id="department" class="form-control">
+                                    <option value="computer science">Computer Science</option>
+                                    <option value="biology">Biology</option>
+                                    <option value="chemistry">Chemistry</option>
+                                    <option value="physics">Physics</option>
+                                    <option value="mathematics">Mathematics</option>
+                                    <option value="environmental science">Environmental Science</option>
+                                    <option value="other">Other</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Gender:</label>
-                                <select name="gender" id="id" class="form-control">
-                                    <option value="male">male</option>
-                                    <option value="female">female</option>
+                                <label for="gender">Gender:</label>
+                                <select name="gender" id="gender" class="form-control">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <button type="submit" name="addStudent" class="btn btn-block btn-success">Add Student</button>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
