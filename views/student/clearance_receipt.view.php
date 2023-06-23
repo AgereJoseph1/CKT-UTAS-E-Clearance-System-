@@ -16,16 +16,16 @@
 
                 <div class="col-10 px-0">
                     <div class="d-flex justify-content-between pn-18">
-                        <p>Rgistration No.: ...........................................................</p>
-                        <p>Student Name: ..............................................................</p>
+                        <p>Rgistration No.:<?=$ctx['student']['index_number']?> </p>
+                        <p>Student Name:<?=$ctx['student']['fullname']?> </p>
                     </div>
-                    <p>Gender: ........................................................................</p>
+                    <p>Gender:<?=$ctx['student']['gender']?> </p>
                     <div class="d-flex justify-content-between">
-                        <p>Department: .................................................................</p>
-                        <p>Programme: ..................................................................</p>
+                        <p>Department: <?=$ctx['student']['department']?></p>
+                        <p>Programme: <?=$ctx['student']['programme']?></p>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <p>Signature: ..................................................................</p>
+                        <p>Signature: </p>
                         <p>Date: .............................................................................
                         </p>
                     </div>
@@ -48,7 +48,7 @@
                 <div>
                     <p>CAMPUS ACCOUNTANT</p>
                     <P>
-                        I certify that the bearer of this form has paid fully all monie to the university school
+                        I certify that the bearer of this form has paid fully all monies to the university school
                     </P>
                     <div class="d-flex mt-4 mb-2 justify-content-between">
                         <p>Signature/stamp: .............................................</p>
