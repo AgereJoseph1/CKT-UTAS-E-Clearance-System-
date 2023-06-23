@@ -16,16 +16,16 @@
 
                 <div class="col-10 px-0">
                     <div class="d-flex justify-content-between pn-18">
-                        <p>Rgistration No.: ...........................................................</p>
-                        <p>Student Name: ..............................................................</p>
+                        <p>Rgistration No.:<?=$ctx['student']['index_number']?> </p>
+                        <p>Student Name:<?=$ctx['student']['fullname']?> </p>
                     </div>
-                    <p>Gender: ........................................................................</p>
+                    <p>Gender:<?=$ctx['student']['gender']?> </p>
                     <div class="d-flex justify-content-between">
-                        <p>Department: .................................................................</p>
-                        <p>Programme: ..................................................................</p>
+                        <p>Department: <?=$ctx['student']['department']?></p>
+                        <p>Programme: <?=$ctx['student']['programme']?></p>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <p>Signature: ..................................................................</p>
+                        <p>Signature: </p>
                         <p>Date: .............................................................................
                         </p>
                     </div>
@@ -43,8 +43,8 @@
 
             <div class="card-body px-0">
                 <div>
+
                     <?php if ($ctx['student']['clearance_started']): ?>
-                        <?php $clearance_item = $ctx['clearance_items']; ?>
                     <!-- // CONTENT GOES HERE  -->
 
                         <!-- 
