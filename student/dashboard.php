@@ -1,5 +1,6 @@
 <?php
 require_once "../app/app.php";
+studentOnly();
 
 $ctx = [
     'title' => 'Student Dashboard',
