@@ -7,7 +7,8 @@ $ctx = [
     "title" => "Admin Dashboard", 
     "officeCount" => R::count("office"),
     "officerCount" => R::count("formmaster") + R::count("officer"),
-    "institutionCount" => R::count("institution"),
+    "clearedStudentCount" => R::count("student","clearance_completed =1 "),
+    "unclearedStudentCount" => R::count("student","clearance_completed = 0"),
     "studentcount" => R::count("student"),
 ];
 
