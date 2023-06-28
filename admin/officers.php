@@ -62,5 +62,18 @@ if (isset($_POST['addOfficer'])) {
         }
     }
 }
+if (isset($_POST['delOfficer'])){
+    $pk = $_POST['oid'];
+    $res = CRUD::delete("officer", $pk);
+
+    if ($res == 1){
+        $_SESSION['at'] = 'info';
+        $_SESSION['am'] = 'Officer Removed Successfully';
+    }else{
+        $_SESSION['at'] = 'danger';
+        $_SESSION['am'] = $res;
+    }
+    redirect("officers.php");
+}
 
 render_view("admin/all-officers", $ctx);

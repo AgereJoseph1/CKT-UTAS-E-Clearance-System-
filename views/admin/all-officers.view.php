@@ -44,7 +44,7 @@
                                         <form method="POST">
                                             <input type="hidden" value="<?= $officer['id'] ?>" name="oid">
                                             <button type="submit" onclick="return confirm('Are you sure?')"
-                                                    name="delOffice" class="btn btn-danger btn-sm mr-2">
+                                                    name="delOfficer" class="btn btn-danger btn-sm mr-2">
                                                 Delete
                                             </button>
                                         </form>
@@ -92,7 +92,6 @@
                         <select name="role" id="id" class="form-control">
                             <option value="librarian">Librarian</option>
                             <option value="accountant">Accountant</option>
-                            <option value="it_directorate">IT directorate</option>
                             <option value="computer_lab">computer lab</option>
                             <option value="deen">Deen</option>
                             <option value="snr_mhall_tutor">Snr_mhall_tutor</option>
