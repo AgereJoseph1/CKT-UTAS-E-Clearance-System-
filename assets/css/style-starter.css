@@ -13162,6 +13162,21 @@ img {
   left: 170px;
 }
 
+.date {
+  position: absolute;
+  right: 70px;
+  bottom: 5px;
+}
+
+.receipt .table td {
+  padding: 3px;
+}
+
+.receipt .table tr td:nth-child(odd) {
+  padding-right: 12rem; 
+}
+
+
 /*--responsive--*/
 @media (max-width: 992px) {
   .inbox_people {

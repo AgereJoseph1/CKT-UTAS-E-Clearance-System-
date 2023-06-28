@@ -1,10 +1,10 @@
 <div class="content">
-    <div class="container-fluid content-top-gap">
+    <div class="container-fluid pt-5">
         <div class="card" style="border: none !important">
             <div class="justify-content-center text-center">
-                <h2 class="text-center mb-4">
+                <h1 class="text-center mb-4 font-weight-bold">
                     CKT UNIVERSITY FOR OF TECHNOLOGY AND APPLIED SCIENCES
-                </h2>
+                </h1>
                 <div class="text-center"> 
                     <img class="" src="../assets/images/ckt-logo.png" alt="" width="150px">
                 </div>
@@ -14,21 +14,41 @@
             <!-- STUDENT INFO TABLE -->
             <div class="row mt-5 mx-2">
 
-                <div class="col-10 px-0">
-                    <div class="d-flex justify-content-between pn-18">
-                        <p>Rgistration No.:<?=$ctx['student']['index_number']?> </p>
+                <div class="col-10 px-0 receipt">
+                    <div class="table-responsive">
+                        <table class="table m-0 table-borderless">
+                            <tr>
+                                <td>Rgistration No.: <?= strtoupper($ctx['student']['index_number']) ?></td>
+                                <td>Student Name: <?= $ctx['student']['fullname'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Gender: <?=ucfirst($ctx['student']['gender'])?> </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Department: <?=ucwords($ctx['student']['department'])?></td>
+                                <td>Programme: <?=ucwords($ctx['student']['programme'])?></td>
+                            </tr>
+                            <tr>
+                                <td>Signature: ................................................</td>
+                                <td>Date: ...........................................................</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- <div class="d-flex justify-content-between pn-18">
+                        <p>Rgistration No.: <?=strtoupper($ctx['student']['index_number'])?> </p>
                         <p>Student Name:<?=$ctx['student']['fullname']?> </p>
                     </div>
-                    <p>Gender:<?=$ctx['student']['gender']?> </p>
+                    <p>Gender: <?=ucfirst($ctx['student']['gender'])?> </p>
                     <div class="d-flex justify-content-between">
-                        <p>Department: <?=$ctx['student']['department']?></p>
-                        <p>Programme: <?=$ctx['student']['programme']?></p>
+                        <p>Department: <?=ucwords($ctx['student']['department'])?></p>
+                        <p>Programme: <?=ucwords($ctx['student']['programme'])?></p>
                     </div>
                     <div class="d-flex justify-content-between">
                         <p>Signature: ................................................</p>
                         <p>Date: ...........................................................
                         </p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="col-2">
@@ -56,122 +76,177 @@
                         ##  5. Hall master/mistress
                         -->
 
-                        <!--  ACCOUNTANT  -->
-                        <p>CAMPUS ACCOUNTANT</p>
-                        <P>
-                            I certify that the bearer of this form has paid fully all monie to the university school
-                        </P>
-                        <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
-                            <p>Signature/stamp: .............................................
-                            <img class="sign" src="../assets/uploads/accountant.png" alt="">
-                            </p>
-                            <p>Date: .............................................</p>
-                        </div><br>
-
-                        
-                        <!-- LIBRARIAN -->
-                        <p>CAMPUS LIBRARIAN</p>
-                        <P>
-                            I testify that the bearer of this form returned all books, pamphlets
-                            and any other reading materials borrowed from the library or where
-                            penalties were imposed for delay, the bearer has cleared his/her name.
-                        </P>
-                        <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
-                            <p>Signature/stamp:  .............................................
-                            <img class="sign" src="../assets/uploads/6494540775caa.png" alt="">
-                            </p>
-                            <p>Date: .............................................</p>
-                        </div><br>
+                        <?php foreach ($ctx[0] as $clearance_item): ?>
+                            <?php if($clearance_item['officer_id'] == 10): ?>
+                                <!--  ACCOUNTANT  -->
+                                <p>CAMPUS ACCOUNTANT</p>
+                                <P>
+                                    I certify that the bearer of this form has paid fully all monie to the university school
+                                </P>
+                                <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
+                                    <p>Signature/stamp: .............................................
+                                    <img class="sign" src="../assets/uploads/<?=$clearance_item['signature'] ?>" alt="">
+                                    </p>
+                                    <p>Date: .............................................
+                                    <span class="date"><?=$clearance_item['date']?></span>
+                                    </p>
+                                </div><br>
 
 
-                        <!-- COMPUTER LAB -->
-                        <p>COMPUTER LABORATORY</p>
-                        <P>
-                            I testify that the bearer of this form has fulfilled all his financial
-                            and scholarly obligations to the computer laboratory.
-                        </P>
-                        <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
-                            <p>Signature/stamp:  .............................................
-                            <img class="sign" src="../assets/uploads/comp-lab.png" alt="">
-                            </p>
-                            <p>Date: .............................................</p>
-                        </div><br>
+                            <?php elseif($clearance_item['officer_id'] == 15): ?>
+                                <!-- LIBRARIAN -->
+                                <p>CAMPUS LIBRARIAN</p>
+                                <P>
+                                    I testify that the bearer of this form returned all books, pamphlets
+                                    and any other reading materials borrowed from the library or where
+                                    penalties were imposed for delay, the bearer has cleared his/her name.
+                                </P>
+                                <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
+                                    <p>Signature/stamp:  .............................................
+                                    <img class="sign" src="../assets/uploads/<?=$clearance_item['signature'] ?>" alt="">
+                                    </p>
+                                    <p>Date: .............................................
+                                    <span class="date"><?=$clearance_item['date']?></span>
+                                    </p>
+                                </div><br>
 
 
-                        <!-- DEAN -->
-                        <p>DEAN IN CHARGE</p>
-                        <P>
-                            I certify that the student has discharged all his financial obligations 
-                            to the University school.
-                        </P>
-                        <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
-                            <p>Signature/stamp:  .............................................
-                            <img class="sign" src="../assets/uploads/dean.png" alt="">
-                            </p>
-                            <p>Date: .............................................</p>
-                        </div><br>
+                            <?php elseif($clearance_item['officer_id'] == 14): ?>
+                                <!-- COMPUTER LAB -->
+                                <p>COMPUTER LABORATORY</p>
+                                <P>
+                                    I testify that the bearer of this form has fulfilled all his financial
+                                    and scholarly obligations to the computer laboratory.
+                                </P>
+                                <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
+                                    <p>Signature/stamp:  .............................................
+                                    <img class="sign" src="../assets/uploads/<?=$clearance_item['signature'] ?>" alt="">
+                                    </p>
+                                    <p>Date: .............................................
+                                    <span class="date"><?=$clearance_item['date']?></span>
+                                    </p>
+                                </div><br>
 
 
-                        <!-- SPORTS COACH -->
-                        <p>CAMPUS SPORTS COARCH</p>
-                        <P>
-                            The bearer of this form has submitted all sports equipment in his/her 
-                            possession.
-                        </P>
-                        <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
-                            <p>Signature/stamp:  .............................................
-                            <img class="sign" src="../assets/uploads/sports-coach.png" alt="">
-                            </p>
-                            <p>Date: .............................................</p>
-                        </div><br>
+                            <?php elseif($clearance_item['officer_id'] ==13 ): ?>
+                                <!-- DEAN -->
+                                <p>DEAN IN CHARGE</p>
+                                <P>
+                                    I certify that the student has discharged all his financial obligations 
+                                    to the University school.
+                                </P>
+                                <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
+                                    <p>Signature/stamp:  .............................................
+                                    <img class="sign" src="../assets/uploads/<?=$clearance_item['signature'] ?>" alt="">
+                                    </p>
+                                    <p>Date: .............................................
+                                    <span class="date"><?=$clearance_item['date']?></span>
+                                    </p>
+                                </div><br>
+
+
+                            <?php elseif($clearance_item['officer_id'] == 11): ?>
+                                <!-- SPORTS COACH -->
+                                <p>CAMPUS SPORTS COARCH</p>
+                                <P>
+                                    The bearer of this form has submitted all sports equipment in his/her 
+                                    possession.
+                                </P>
+                                <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
+                                    <p>Signature/stamp:  .............................................
+                                    <img class="sign" src="../assets/uploads/<?=$clearance_item['signature'] ?>" alt="">
+                                    </p>
+                                    <p>Date: .............................................
+                                    <span class="date"><?=$clearance_item['date']?></span>
+                                    </p>
+                                </div><br>
 
 
 
-                        <!-- || Non-Default Officers || -->
-                        <?php foreach ($ctx['clearance_items'] as $clearance_item): ?>
-                            <?php if ($clearance_item['officer_id'] == 5): ?>
+                            <!-- || Non-Default Officers || -->
+                            <?php elseif ($clearance_item['officer_id'] == 5): ?>
 
                                 <!-- BIO LAB -->
-                                <p>LABORATORY</p>
+                                <p>LABORATORY BIO</p>
                                 <P>
                                     The bearer of this form has fulfilled all his financial obligations including
                                     replcacing and repair of broken and damaged laboratory equipment.
                                 </P>
                                 <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
                                     <p>Signature/stamp:  .............................................
-                                    <img class="sign" src="../assets/uploads/bio-lab.png" alt="">
+                                    <img class="sign" src="../assets/uploads/<?=$clearance_item['signature'] ?>" alt="">
                                     </p>
-                                <p>Date: .............................................</p>
+                                    <p>Date: .............................................
+                                    <?=$clearance_item['date'];?>
+                                    </p>
                                 </div><br>
 
                             <?php elseif ($clearance_item['officer_id'] ==  6): ?>
 
                                 <!-- CHEMISTRY LAB -->
-                                <p>LABORATORY</p>
+                                <p>LABORATORY CHEM</p>
                                 <P>
                                     The bearer of this form has fulfilled all his financial obligations including
                                     replcacing and repair of broken and damaged laboratory equipment.
                                 </P>
                                 <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
                                     <p>Signature/stamp:  .............................................
-                                    <img class="sign" src="../assets/uploads/chem-lab.png" alt="">
+                                    <img class="sign" src="../assets/uploads/<?=$clearance_item['signature'] ?>" alt="">
                                     </p>
-                                <p>Date: .............................................</p>
+                                <p>Date: .............................................
+                                <span class="date"><?=$clearance_item['date']?></span>
+                                </p>
                                 </div><br>
 
                             <?php elseif ($clearance_item['officer_id'] ==  7): ?>
 
                                 <!-- PHYSICS LAB -->
-                                <p>LABORATORY</p>
+                                <p>LABORATORY PHY</p>
                                 <P>
                                     The bearer of this form has fulfilled all his financial obligations including
                                     replcacing and repair of broken and damaged laboratory equipment.
                                 </P>
                                 <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
                                     <p>Signature/stamp:  .............................................
-                                    <img class="sign" src="../assets/uploads/phy-lab.png" alt="">
+                                    <img class="sign" src="../assets/uploads/<?=$clearance_item['signature'] ?>" alt="">
                                     </p>
-                                <p>Date: .............................................</p>
+                                <p>Date: .............................................
+                                <span class="date"><?=$clearance_item['date']?></span>
+                                </p>
+                                </div><br>
+
+                            <?php elseif ($clearance_item['officer_id'] ==  8): ?>
+
+                                <!-- MALE HALL TUTOR -->
+                                <p>SENIOR HALL TUTOR 8</p>
+                                <P>
+                                    The bearer of this form has fulfilled all his financial obligations in
+                                    his/her Hall of Residence.
+                                </P>
+                                <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
+                                    <p>Signature/stamp:  .............................................
+                                    <img class="sign" src="../assets/uploads/<?=$clearance_item['signature'] ?>" alt="">
+                                    </p>
+                                <p>Date: .............................................
+                                <span class="date"><?=$clearance_item['date']?></span>
+                                </p>
+                                </div><br>
+
+                            <?php elseif ($clearance_item['officer_id'] ==  9): ?>
+
+                                <!-- FEMALE HALL TUTOR -->
+                                <p>SENIOR HALL TUTOR 9</p>
+                                <P>
+                                    The bearer of this form has fulfilled all his financial obligations in
+                                    his/her Hall of Residence.
+                                </P>
+                                <div class="d-flex mt-4 mb-2 justify-content-between position-relative">
+                                    <p>Signature/stamp:  .............................................
+                                    <img class="sign" src="../assets/uploads/<?=$clearance_item['signature'] ?>" alt="">
+                                    </p>
+                                <p>Date: .............................................
+                                <span class="date"><?=$clearance_item['date']?></span>
+                                </p>
                                 </div><br>
 
                             <?php endif ?>
@@ -179,22 +254,7 @@
                         <?php endforeach ?>
 
                         
-                            <div>
-
-                                <p>SENIOR HALL TUTOR</p>
-                                <P>
-                                    The bearer of this form has fulfilled all his financial obligations in
-                                    his/her Hall of Residence.
-                                </P>
-                                <div class="d-flex mt-4 mb-2 justify-content-between">
-                                    <p>Signature/stamp:  .............................................</p>
-                                <p>Date: .............................................</p>
-                                </div><br>
-
-                                
-
-                                
-                            </div>
+                           
                     
                     <!-- // CONTENT ENDS HERE  -->
                     <?php else: ?>
@@ -210,5 +270,5 @@
 </div>
 
 <script>
-    window.print()
+    window.print();
 </script>

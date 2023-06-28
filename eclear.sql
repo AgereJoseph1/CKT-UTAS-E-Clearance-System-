@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 28, 2023 at 03:22 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jun 28, 2023 at 06:08 PM
+-- Server version: 5.7.36
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,14 +27,17 @@ SET time_zone = "+00:00";
 -- Table structure for table `clearance`
 --
 
-CREATE TABLE `clearance` (
-  `id` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `clearance`;
+CREATE TABLE IF NOT EXISTS `clearance` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `student_id` int(10) UNSIGNED DEFAULT NULL,
   `is_completed` tinyint(3) UNSIGNED DEFAULT NULL,
-  `code` varchar(191) DEFAULT NULL,
-  `created_at` varchar(191) DEFAULT NULL,
-  `created_time` varchar(191) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `code` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `created_at` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `created_time` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_foreignkey_clearance_student` (`student_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `clearance`
@@ -68,18 +71,23 @@ INSERT INTO `clearance` (`id`, `student_id`, `is_completed`, `code`, `created_at
 -- Table structure for table `clearanceitem`
 --
 
-CREATE TABLE `clearanceitem` (
-  `id` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `clearanceitem`;
+CREATE TABLE IF NOT EXISTS `clearanceitem` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `clearance_id` int(10) UNSIGNED DEFAULT NULL,
   `officer_id` int(10) UNSIGNED DEFAULT NULL,
   `student_id` int(10) UNSIGNED DEFAULT NULL,
-  `status` varchar(191) DEFAULT NULL,
-  `remarks` varchar(5000) NOT NULL,
-  `created_at` varchar(191) DEFAULT NULL,
-  `time_created` varchar(191) DEFAULT NULL,
-  `updated_at` varchar(191) DEFAULT NULL,
-  `time_updated` varchar(191) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `status` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `remarks` varchar(5000) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `created_at` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `time_created` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `updated_at` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `time_updated` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_foreignkey_clearanceitem_clearance` (`clearance_id`),
+  KEY `index_foreignkey_clearanceitem_officer` (`officer_id`),
+  KEY `index_foreignkey_clearanceitem_student` (`student_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `clearanceitem`
@@ -142,9 +150,9 @@ INSERT INTO `clearanceitem` (`id`, `clearance_id`, `officer_id`, `student_id`, `
 (91, 33, 15, 31, 'pending', 'Not Set', '27/06/2023', '04:55 pm', '27/06/2023', '04:55 pm'),
 (92, 34, 8, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
 (93, 34, 7, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
-(94, 34, 10, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
+(94, 34, 10, 32, 'cleared', '', '27/06/2023', '05:01 pm', '19/06/2023', '05:01 pm'),
 (95, 34, 11, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
-(96, 34, 12, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
+(96, 34, 12, 32, 'cleared', '', '27/06/2023', '05:01 pm', '19/06/2023', '05:01 pm'),
 (97, 34, 13, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
 (98, 34, 14, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
 (99, 34, 15, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm');
@@ -155,33 +163,35 @@ INSERT INTO `clearanceitem` (`id`, `clearance_id`, `officer_id`, `student_id`, `
 -- Table structure for table `officer`
 --
 
-CREATE TABLE `officer` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `email` varchar(191) DEFAULT NULL,
-  `phone` varchar(191) DEFAULT NULL,
-  `fullname` varchar(191) DEFAULT NULL,
-  `role` varchar(191) DEFAULT NULL,
-  `signature` varchar(191) DEFAULT NULL,
-  `password` varchar(100) DEFAULT NULL,
-  `created_at` varchar(191) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+DROP TABLE IF EXISTS `officer`;
+CREATE TABLE IF NOT EXISTS `officer` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `email` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `fullname` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `role` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `signature` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `password` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `created_at` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `officer`
 --
 
 INSERT INTO `officer` (`id`, `email`, `phone`, `fullname`, `role`, `signature`, `password`, `created_at`) VALUES
-(5, 'atanga@gmail.com', '05858585', 'Atanga Emmanuel', 'bio_lab', '6494540775caa_Screenshot (40).png', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
-(6, 'job@gmail.com', '07686868', 'Agere Job', 'chem_lab', '', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
-(7, 'ngata@gmail.com', '0868686', 'Ngata Anthony', 'phy_lab', '', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
-(8, 'dennis@gmail.com', '06966096', 'Awini Dennis', 'snr_mhall_tutor', '', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
-(9, 'irene@gmail.com', '0660606600', 'Irene ', 'snr_fhall_tutor', '', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
-(10, 'joseph@gmail.com', '0686868', 'Atanga Joseph', 'accountant', '', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
-(11, 'vitalis@gmail.com', '067686868', 'Atinga Vitalis', 'cmps_coach', '', 'e10adc3949ba59abbe56e057f20f883e', '23/06/2023'),
+(5, 'atanga@gmail.com', '05858585', 'Atanga Emmanuel', 'bio_lab', 'bio-lab.png', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
+(6, 'job@gmail.com', '07686868', 'Agere Job', 'chem_lab', 'chem-lab.png', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
+(7, 'ngata@gmail.com', '0868686', 'Ngata Anthony', 'phy_lab', 'phy-lab.png', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
+(8, 'dennis@gmail.com', '06966096', 'Awini Dennis', 'snr_mhall_tutor', 'hall_male.png', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
+(9, 'irene@gmail.com', '0660606600', 'Irene ', 'snr_fhall_tutor', 'hall_female.png', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
+(10, 'joseph@gmail.com', '0686868', 'Atanga Joseph', 'accountant', 'accountant.png', 'e10adc3949ba59abbe56e057f20f883e', '22/06/2023'),
+(11, 'vitalis@gmail.com', '067686868', 'Atinga Vitalis', 'cmps_coach', 'sports-coach.png', 'e10adc3949ba59abbe56e057f20f883e', '23/06/2023'),
 (12, 'agere@gmail.com', '08696969', 'Agere Anthony', 'it_directorate', '', 'e10adc3949ba59abbe56e057f20f883e', '23/06/2023'),
-(13, 'emmanuel@gmail.com', '08686868', 'Awini Emmanuel', 'deen', '', 'e10adc3949ba59abbe56e057f20f883e', '23/06/2023'),
-(14, 'stephen@gmail.com', '09696969', 'Ayelwin Stephen', 'computer_lab', '', 'e10adc3949ba59abbe56e057f20f883e', '23/06/2023'),
-(15, 'alfred@gmail.com', '0868686', 'Asuuga Alfred', 'librarian', '', 'e10adc3949ba59abbe56e057f20f883e', '23/06/2023');
+(13, 'emmanuel@gmail.com', '08686868', 'Awini Emmanuel', 'deen', 'dean.png', 'e10adc3949ba59abbe56e057f20f883e', '23/06/2023'),
+(14, 'stephen@gmail.com', '09696969', 'Ayelwin Stephen', 'computer_lab', 'comp-lab.png', 'e10adc3949ba59abbe56e057f20f883e', '23/06/2023'),
+(15, 'alfred@gmail.com', '0868686', 'Asuuga Alfred', 'librarian', 'librarian', 'e10adc3949ba59abbe56e057f20f883e', '23/06/2023');
 
 -- --------------------------------------------------------
 
@@ -189,17 +199,19 @@ INSERT INTO `officer` (`id`, `email`, `phone`, `fullname`, `role`, `signature`, 
 -- Table structure for table `student`
 --
 
-CREATE TABLE `student` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `fullname` varchar(191) DEFAULT NULL,
-  `index_number` varchar(191) DEFAULT NULL,
-  `programme` varchar(191) DEFAULT NULL,
-  `department` varchar(191) DEFAULT NULL,
-  `gender` varchar(10) DEFAULT NULL,
-  `pwd` varchar(100) DEFAULT NULL,
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE IF NOT EXISTS `student` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `fullname` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `index_number` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `programme` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `department` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `gender` varchar(10) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `pwd` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `clearance_started` tinyint(3) UNSIGNED DEFAULT NULL,
-  `clearance_completed` tinyint(3) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `clearance_completed` tinyint(3) UNSIGNED DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `student`
@@ -227,12 +239,14 @@ INSERT INTO `student` (`id`, `fullname`, `index_number`, `programme`, `departmen
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fullname` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `password` varchar(300) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
@@ -240,78 +254,6 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `fullname`, `username`, `password`) VALUES
 (1, 'Joseph Agere', 'admin', 'admin');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `clearance`
---
-ALTER TABLE `clearance`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `index_foreignkey_clearance_student` (`student_id`);
-
---
--- Indexes for table `clearanceitem`
---
-ALTER TABLE `clearanceitem`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `index_foreignkey_clearanceitem_clearance` (`clearance_id`),
-  ADD KEY `index_foreignkey_clearanceitem_officer` (`officer_id`),
-  ADD KEY `index_foreignkey_clearanceitem_student` (`student_id`);
-
---
--- Indexes for table `officer`
---
-ALTER TABLE `officer`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `clearance`
---
-ALTER TABLE `clearance`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
--- AUTO_INCREMENT for table `clearanceitem`
---
-ALTER TABLE `clearanceitem`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
-
---
--- AUTO_INCREMENT for table `officer`
---
-ALTER TABLE `officer`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `student`
---
-ALTER TABLE `student`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
