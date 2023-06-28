@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2023 at 07:39 PM
+-- Generation Time: Jun 28, 2023 at 03:22 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -51,13 +51,16 @@ INSERT INTO `clearance` (`id`, `student_id`, `is_completed`, `code`, `created_at
 (22, 6, 0, '6494deed07', '23/06/2023', '01:53 am'),
 (23, 16, 0, '6494e599ca', '23/06/2023', '02:21 am'),
 (24, 20, 0, '64956b3828', '23/06/2023', '11:51 am'),
-(25, 18, 0, '64956c18f1', '23/06/2023', '11:55 am'),
+(25, NULL, 0, '64956c18f1', '23/06/2023', '11:55 am'),
 (26, 17, 0, '64957ea4d8', '23/06/2023', '01:14 pm'),
 (27, 25, 0, '64957fe8bc', '23/06/2023', '01:20 pm'),
 (28, 26, 0, '649582fc4e', '23/06/2023', '01:33 pm'),
 (29, 27, 0, '649584c687', '23/06/2023', '01:40 pm'),
 (30, 28, 0, '649586d32e', '23/06/2023', '01:49 pm'),
-(31, 29, 0, '649587eb15', '23/06/2023', '01:54 pm');
+(31, 29, 0, '649587eb15', '23/06/2023', '01:54 pm'),
+(32, 30, 0, '649af7bfc5', '27/06/2023', '04:52 pm'),
+(33, 31, 0, '649af856ef', '27/06/2023', '04:55 pm'),
+(34, 32, 0, '649af9d517', '27/06/2023', '05:01 pm');
 
 -- --------------------------------------------------------
 
@@ -95,14 +98,11 @@ INSERT INTO `clearanceitem` (`id`, `clearance_id`, `officer_id`, `student_id`, `
 (44, 24, 10, 20, 'pending', 'Not Set', '23/06/2023', '11:51 am', '23/06/2023', '11:51 am'),
 (45, 24, 8, 20, 'pending', 'Not Set', '23/06/2023', '11:51 am', '23/06/2023', '11:51 am'),
 (46, 24, 7, 20, 'pending', 'Not Set', '23/06/2023', '11:51 am', '23/06/2023', '11:51 am'),
-(47, 25, 10, 18, 'pending', 'Not Set', '23/06/2023', '11:55 am', '23/06/2023', '11:55 am'),
-(48, 25, 9, 18, 'pending', 'Not Set', '23/06/2023', '11:55 am', '23/06/2023', '11:55 am'),
-(49, 25, 7, 18, 'pending', 'Not Set', '23/06/2023', '11:55 am', '23/06/2023', '11:55 am'),
 (50, 26, 10, 17, 'pending', 'Not Set', '23/06/2023', '01:14 pm', '23/06/2023', '01:14 pm'),
 (51, 26, 8, 17, 'pending', 'Not Set', '23/06/2023', '01:14 pm', '23/06/2023', '01:14 pm'),
 (52, 27, 10, 25, 'pending', 'Not Set', '23/06/2023', '01:20 pm', '23/06/2023', '01:20 pm'),
 (53, 27, 8, 25, 'pending', 'Not Set', '23/06/2023', '01:20 pm', '23/06/2023', '01:20 pm'),
-(54, 27, 5, 25, 'pending', 'Not Set', '23/06/2023', '01:20 pm', '23/06/2023', '01:20 pm'),
+(54, 27, 5, 25, 'cleared', '', '23/06/2023', '01:20 pm', '23/06/2023', '01:20 pm'),
 (55, 28, 8, 26, 'pending', 'Not Set', '23/06/2023', '01:33 pm', '23/06/2023', '01:33 pm'),
 (56, 28, 6, 26, 'pending', 'Not Set', '23/06/2023', '01:33 pm', '23/06/2023', '01:33 pm'),
 (57, 28, 10, 26, 'pending', 'Not Set', '23/06/2023', '01:33 pm', '23/06/2023', '01:33 pm'),
@@ -110,7 +110,7 @@ INSERT INTO `clearanceitem` (`id`, `clearance_id`, `officer_id`, `student_id`, `
 (59, 29, 7, 27, 'pending', 'Not Set', '23/06/2023', '01:40 pm', '23/06/2023', '01:40 pm'),
 (60, 29, 10, 27, 'pending', 'Not Set', '23/06/2023', '01:40 pm', '23/06/2023', '01:40 pm'),
 (61, 30, 8, 28, 'pending', 'Not Set', '23/06/2023', '01:49 pm', '23/06/2023', '01:49 pm'),
-(62, 30, 5, 28, 'pending', 'Not Set', '23/06/2023', '01:49 pm', '23/06/2023', '01:49 pm'),
+(62, 30, 5, 28, 'cleared', '', '23/06/2023', '01:49 pm', '23/06/2023', '01:49 pm'),
 (63, 30, 10, 28, 'pending', 'Not Set', '23/06/2023', '01:49 pm', '23/06/2023', '01:49 pm'),
 (64, 30, 11, 28, 'pending', 'Not Set', '23/06/2023', '01:49 pm', '23/06/2023', '01:49 pm'),
 (65, 30, 12, 28, 'pending', 'Not Set', '23/06/2023', '01:49 pm', '23/06/2023', '01:49 pm'),
@@ -123,7 +123,31 @@ INSERT INTO `clearanceitem` (`id`, `clearance_id`, `officer_id`, `student_id`, `
 (72, 31, 12, 29, 'pending', 'Not Set', '23/06/2023', '01:54 pm', '23/06/2023', '01:54 pm'),
 (73, 31, 13, 29, 'pending', 'Not Set', '23/06/2023', '01:54 pm', '23/06/2023', '01:54 pm'),
 (74, 31, 14, 29, 'pending', 'Not Set', '23/06/2023', '01:54 pm', '23/06/2023', '01:54 pm'),
-(75, 31, 15, 29, 'pending', 'Not Set', '23/06/2023', '01:54 pm', '23/06/2023', '01:54 pm');
+(75, 31, 15, 29, 'pending', 'Not Set', '23/06/2023', '01:54 pm', '23/06/2023', '01:54 pm'),
+(76, 32, 8, 30, 'pending', 'Not Set', '27/06/2023', '04:52 pm', '27/06/2023', '04:52 pm'),
+(77, 32, 7, 30, 'pending', 'Not Set', '27/06/2023', '04:52 pm', '27/06/2023', '04:52 pm'),
+(78, 32, 10, 30, 'pending', 'Not Set', '27/06/2023', '04:52 pm', '27/06/2023', '04:52 pm'),
+(79, 32, 11, 30, 'pending', 'Not Set', '27/06/2023', '04:52 pm', '27/06/2023', '04:52 pm'),
+(80, 32, 12, 30, 'pending', 'Not Set', '27/06/2023', '04:52 pm', '27/06/2023', '04:52 pm'),
+(81, 32, 13, 30, 'pending', 'Not Set', '27/06/2023', '04:52 pm', '27/06/2023', '04:52 pm'),
+(82, 32, 14, 30, 'pending', 'Not Set', '27/06/2023', '04:52 pm', '27/06/2023', '04:52 pm'),
+(83, 32, 15, 30, 'pending', 'Not Set', '27/06/2023', '04:52 pm', '27/06/2023', '04:52 pm'),
+(84, 33, 8, 31, 'pending', 'Not Set', '27/06/2023', '04:55 pm', '27/06/2023', '04:55 pm'),
+(85, 33, 7, 31, 'pending', 'Not Set', '27/06/2023', '04:55 pm', '27/06/2023', '04:55 pm'),
+(86, 33, 10, 31, 'pending', 'Not Set', '27/06/2023', '04:55 pm', '27/06/2023', '04:55 pm'),
+(87, 33, 11, 31, 'pending', 'Not Set', '27/06/2023', '04:55 pm', '27/06/2023', '04:55 pm'),
+(88, 33, 12, 31, 'pending', 'Not Set', '27/06/2023', '04:55 pm', '27/06/2023', '04:55 pm'),
+(89, 33, 13, 31, 'pending', 'Not Set', '27/06/2023', '04:55 pm', '27/06/2023', '04:55 pm'),
+(90, 33, 14, 31, 'pending', 'Not Set', '27/06/2023', '04:55 pm', '27/06/2023', '04:55 pm'),
+(91, 33, 15, 31, 'pending', 'Not Set', '27/06/2023', '04:55 pm', '27/06/2023', '04:55 pm'),
+(92, 34, 8, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
+(93, 34, 7, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
+(94, 34, 10, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
+(95, 34, 11, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
+(96, 34, 12, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
+(97, 34, 13, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
+(98, 34, 14, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm'),
+(99, 34, 15, 32, 'cleared', '', '27/06/2023', '05:01 pm', '27/06/2023', '05:01 pm');
 
 -- --------------------------------------------------------
 
@@ -186,15 +210,16 @@ INSERT INTO `student` (`id`, `fullname`, `index_number`, `programme`, `departmen
 (6, 'Prince Mireku', 'Fms/0008/19', 'Mathematics with Economics', 'mathematics', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
 (16, 'Joseph Agere', 'Fms/0082/19', 'computer science', 'computer science', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
 (17, 'Prince Mireku', 'Fms/0006/19', 'Mathematics with Economics', 'mathematics', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
-(18, 'Agere Suzy', 'Fms/0004/19', 'Applied Biology', 'biology', 'female', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
-(19, 'Agere Rebecca', 'Fms/0080/19', 'Applied Physics', 'biology', 'female', 'e10adc3949ba59abbe56e057f20f883e', 0, 0),
 (20, 'Agere Joel', 'Fms/0084/19', 'Applied Biology', 'chemistry', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
 (21, 'Joseph Agere', 'Fms/0022/19', 'computer science', 'computer science', 'male', 'e10adc3949ba59abbe56e057f20f883e', 0, 0),
 (25, 'Prince Mireku', 'fms/0001/19', 'Applied Biology', 'biology', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
 (26, 'Atinga Emmanuel', 'fms/0002/19', 'chemistry', 'chemistry', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
 (27, 'Asuuga Isaac', 'fms/0007/19', 'computer science', 'computer science', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
 (28, 'Agere Joel', 'fms/0005/19', 'Applied Biology', 'biology', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
-(29, 'Joseph Asarki', 'fms/0003/19', 'mathematics ', 'mathematics', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0);
+(29, 'Joseph Asarki', 'fms/0003/19', 'mathematics ', 'mathematics', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
+(30, 'Joseph ', 'fms/0600/19', 'computer science', 'computer science', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
+(31, 'Emmanuel', 'fms/0012/19', 'Applied Physics', 'physics', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 0),
+(32, 'Joseph Agere', 'fms/0013/19', 'computer science', 'computer science', 'male', 'e10adc3949ba59abbe56e057f20f883e', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -262,13 +287,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `clearance`
 --
 ALTER TABLE `clearance`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `clearanceitem`
 --
 ALTER TABLE `clearanceitem`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `officer`
@@ -280,7 +305,7 @@ ALTER TABLE `officer`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `user`
